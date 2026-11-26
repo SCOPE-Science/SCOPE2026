@@ -16,6 +16,6 @@ The motivating study reports initial-condition-dependent competitive disease dom
 
 ## Closest literature and limitations
 
-Main original model: Li et al., arXiv:2105.08234v1 (May 18, 2021). Higher-order bivirus network comparison: Gracy et al., arXiv:2309.14230v1 (September 25, 2023). Different single-disease multigroup theory: Cisneros-Velarde and Bullo, arXiv:2005.11404. A diagonal coordination-game replicator equivalent formulation poses a genuine originality risk. Numerical checks are finite, and no independent scientific audit was conducted.
+Main original model: Li et al., arXiv:2105.08234v1 (May 18, 2021). Higher-order bivirus network comparison: Gracy et al., arXiv:2309.14230v1 (September 25, 2023). Different single-disease multigroup theory: Cisneros-Velarde and Bullo, arXiv:2005.11404. A diagonal coordination-game replicator equivalent formulation poses a genuine originality risk. Numerical checks are finite.
 
-Self-review: passed. Independent audit: not yet performed.
+Self-review: passed (historical). External independent audit: failed on originality; see [the verdict receipt](EXTERNAL_AUDIT.md).
